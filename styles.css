@@ -404,12 +404,13 @@ main {
 
 .team-section__subtitle {
     font-family: 'Nimbus Sans Black Extended', 'Arial Black', sans-serif;
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(2.7rem, 7.5vw, 9rem);
     font-weight: 900;
     color: var(--dark);
     text-align: center;
     margin-bottom: 4rem;
     letter-spacing: 0.1rem;
+    line-height: 1;
 }
 
 .team-grid {
@@ -798,6 +799,21 @@ main {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-hero__image {
+        order: 1;
+    }
+
+    .about-hero__text {
+        order: 2;
+    }
+
+    .about-hero .section__title {
+        order: 3;
+        margin-top: 2rem;
     }
 
     .team-grid {
