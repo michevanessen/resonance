@@ -183,6 +183,8 @@ main {
     cursor: pointer;
     border-radius: 50px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .hero__cta:hover {
@@ -581,6 +583,8 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .service-section__cta:hover {
