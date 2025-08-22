@@ -667,6 +667,7 @@ main {
 
 .service-section__image img {
     width: 100%;
+    max-width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 20px;
