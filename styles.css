@@ -828,6 +828,19 @@ main {
     }
 }
 
+@media (max-width: 768px) {
+    /* Mobile logo sizing */
+    .nav__logo .logo {
+        height: 20px;
+        width: auto;
+    }
+
+    /* Mobile footer text sizing */
+    .footer-brand__title {
+        font-size: clamp(2rem, 6.8vw, 6.4rem);
+    }
+}
+
 @media (max-width: 480px) {
     .nav {
         padding: 0 1rem;
