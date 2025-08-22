@@ -439,7 +439,7 @@ main {
     font-size: 2.4rem;
     font-weight: 900;
     color: var(--dark);
-    margin-bottom: 0.1rem;
+    margin-bottom: 0;
     letter-spacing: 0.1rem;
     text-align: left;
 }
@@ -450,7 +450,7 @@ main {
     font-weight: 400;
     color: var(--dark);
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     letter-spacing: 0.1rem;
     text-align: left;
     text-transform: uppercase;
