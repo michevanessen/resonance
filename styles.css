@@ -446,7 +446,7 @@ main {
 
 .team-member__position {
     font-family: 'Inter', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: var(--dark);
     margin-top: 0;
