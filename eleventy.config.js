@@ -9,6 +9,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
+  // Sveltia CMS is vendored from node_modules rather than a CDN: the admin
+  // page then needs no third-party script origin in its CSP, and the CMS
+  // version is pinned by package-lock.
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/@sveltia/cms/dist/sveltia-cms.js": "admin/sveltia-cms.js",
+  });
   eleventyConfig.addPassthroughCopy({ "src/static": "/" });
 
   // The CMS shell is copied verbatim; Eleventy must not treat it as a template.
