@@ -8,53 +8,71 @@ Three things get set up, once each:
 
 ---
 
-## 1. Create the Pages project
+## 1. The Pages project — done
 
-Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** →
-**Connect to Git** → pick `michevanessen/resonance`.
+Already created and building from `michevanessen/resonance`, production branch
+`main`. Live at **https://resonance-161.pages.dev**.
 
-Build settings:
+Settings in use:
 
 | Field                  | Value           |
 | ---------------------- | --------------- |
-| Framework preset       | Eleventy        |
 | Build command          | `npm run build` |
 | Build output directory | `_site`         |
-| Root directory         | *(leave blank)* |
+| Production branch      | `main`          |
+| `NODE_VERSION`         | `22`            |
 
-Add one environment variable so Cloudflare uses a current Node:
-
-| Variable       | Value |
-| -------------- | ----- |
-| `NODE_VERSION` | `22`  |
-
-Save and deploy. First build takes 2–3 minutes (Eleventy Image processes every
-photo); later builds are faster. The result lands on `resonance.pages.dev`.
+Every push to `main` triggers a rebuild — roughly two minutes, most of it
+Eleventy Image processing the photos.
 
 `_headers` and `_redirects` in the output are picked up automatically — that's
 where the security headers, cache rules, and the redirects from the old
 `/about.html`-style URLs live.
 
+### A note on the two CSP headers
+
+Cloudflare Pages sends **every** matching `_headers` rule, so `/admin/` gets
+both the `/*` policy and the `/admin/*` one. Browsers enforce each policy
+separately, meaning the effective policy is their *intersection*. If you edit
+`src/static/_headers`, anything the CMS needs (`https://api.github.com`,
+`blob:`, `frame-src 'self'`) must be present in **both** rules or the CMS
+breaks.
+
 ## 2. Point the domain at it
 
-In the Pages project → **Custom domains** → **Set up a custom domain**.
+The zone `jointheresonance.com` is added to Cloudflare on the Free plan, and
+all six DNS records were imported and checked against Hover:
 
-Add **both**:
+| Type  | Name                | Value                                                   | Proxy    |
+| ----- | ------------------- | ------------------------------------------------------- | -------- |
+| MX 10 | `@`                 | `mx01.mail.icloud.com`                                   | DNS only |
+| MX 10 | `@`                 | `mx02.mail.icloud.com`                                   | DNS only |
+| TXT   | `@`                 | `v=spf1 include:icloud.com ~all`                         | DNS only |
+| TXT   | `@`                 | `apple-domain=JMbg8MdDCl20a6R6`                          | DNS only |
+| CNAME | `sig1._domainkey`   | `sig1.dkim.jointheresonance.com.at.icloudmailadmin.com`  | DNS only |
+| CNAME | `www`               | `michevanessen.github.io` *(replaced by Pages)*          | Proxied  |
 
-- `jointheresonance.com`
-- `www.jointheresonance.com`
+The first five are what keep `@jointheresonance.com` email working — four of
+them are iCloud Mail's, and the DKIM CNAME **must stay DNS only**. Proxying it
+would make Cloudflare answer with its own IPs instead of resolving to iCloud,
+and outbound mail would stop being signed.
 
-If the domain's DNS is already on Cloudflare, records are created for you.
-If it is registered elsewhere, Cloudflare shows the CNAME to add at the
-registrar.
+**Step you do at Hover:** replace the nameservers with
 
-**Before switching DNS**, check where the domain currently points — the repo
-previously served from GitHub Pages, and email for `@jointheresonance.com`
-must keep working. Do not delete existing `MX` or `TXT` records.
+```
+chloe.ns.cloudflare.com
+porter.ns.cloudflare.com
+```
 
-Once the custom domain is live, in the GitHub repo go to
-**Settings → Pages** and set the source to **None**, so GitHub Pages stops
-serving a stale copy.
+removing `ns1.hover.com` and `ns2.hover.com`. Activation takes anywhere from a
+few minutes to a few hours.
+
+**After activation**, in the Pages project → **Custom domains**, add both
+`jointheresonance.com` and `www.jointheresonance.com`. Cloudflare rewrites the
+`www` record and adds the apex itself.
+
+Then in the GitHub repo, **Settings → Pages** → source **None**, so GitHub
+Pages stops serving a stale copy.
 
 ## 3. CMS sign-in (GitHub OAuth via a Worker)
 
@@ -100,6 +118,13 @@ In the Worker → **Settings → Variables**, add as **encrypted** secrets:
 mint tokens. Do not leave it unset.
 
 Then open <https://jointheresonance.com/admin/> and sign in.
+
+### Editing before the Worker exists
+
+The CMS also offers **Sign In Using Access Token**. Create a GitHub personal
+access token with `repo` scope (**Settings → Developer settings → Personal
+access tokens**) and paste it in — that works today, no Worker required. The
+Worker is the nicer long-term option because editors never handle a token.
 
 ## Adding an editor
 
