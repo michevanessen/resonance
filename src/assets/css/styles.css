@@ -418,7 +418,10 @@ main {
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* Cards keep a fixed max width and the row centres itself, so the grid
+       reads correctly whether the firm has two partners or eight. */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 330px));
+    justify-content: center;
     gap: 3rem;
 }
 
