@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+---
+<section class="about-hero">
+    <div class="about-hero__content">
+        <div class="about-hero__text">
+            <h1 class="about-hero__title">{{ hero.title }}</h1>
+            <div class="about-hero__description">
+                <p>{{ hero.body }}</p>
+            </div>
+        </div>
+        <div class="about-hero__image">
+            <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}"
+                 loading="eager" decoding="async" fetchpriority="high"
+                 sizes="(max-width: 768px) 100vw, 45vw">
+        </div>
+    </div>
+    <h2 class="section__title">{{ sectionTitle }}</h2>
+</section>
+
+<section class="team-section" aria-labelledby="team-heading">
+    <h2 class="team-section__subtitle" id="team-heading">{{ teamTitle }}</h2>
+
+    <ul class="team-grid">
+        {% for member in collections.team %}
+        <li class="team-member">
+            <img src="{{ member.data.image }}" alt="{{ member.data.name | title }}"
+                 class="team-member__image" sizes="(max-width: 768px) 100vw, 30vw">
+            <h3 class="team-member__name">{{ member.data.name }}</h3>
+            <p class="team-member__position">{{ member.data.position }}</p>
+            <div class="team-member__bio">{{ member.content | safe }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="about-footer-text">
+    <h2 class="about-footer-text__title">{{ closingStatement }}</h2>
+</section>
+
+{% include "partials/footer-brand.njk" %}

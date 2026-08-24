@@ -1,0 +1,50 @@
+---
+layout: layouts/base.njk
+---
+<section class="services-hero">
+    <div class="services-hero__content">
+        <div class="services-hero__text">
+            <h1 class="services-hero__title">{{ hero.title }}</h1>
+            <div class="services-hero__description">
+                <p>{{ hero.body }}</p>
+            </div>
+        </div>
+        <div class="services-hero__image">
+            <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}"
+                 loading="eager" decoding="async" fetchpriority="high"
+                 sizes="(max-width: 768px) 100vw, 45vw">
+        </div>
+    </div>
+    <h2 class="section__title">{{ sectionTitle }}</h2>
+</section>
+
+{% for service in collections.services %}
+{% set svc = service.data %}
+{% set alignment = "service-section--left" if loop.index0 is divisibleby(2) else "service-section--right" %}
+<section class="service-section {{ alignment }}" aria-labelledby="service-{{ loop.index }}">
+    <div class="service-section__content">
+        {% if alignment == "service-section--right" %}
+        <div class="service-section__image">
+            <img src="{{ svc.image }}" alt="{{ svc.imageAlt }}" sizes="(max-width: 768px) 100vw, 45vw">
+        </div>
+        {% endif %}
+        <div class="service-section__text">
+            <h3 class="service-section__subtitle" id="service-{{ loop.index }}">{{ svc.title }}</h3>
+            <p class="service-section__description">{{ svc.intro }}</p>
+            <ul class="service-section__list">
+                {% for bullet in svc.bullets %}<li>{{ bullet }}</li>{% endfor %}
+            </ul>
+            <p class="service-section__closing">{{ svc.closing }}</p>
+            <a href="/contact/" class="service-section__cta">{{ svc.ctaLabel }}</a>
+        </div>
+        {% if alignment == "service-section--left" %}
+        <div class="service-section__image">
+            <img src="{{ svc.image }}" alt="{{ svc.imageAlt }}" sizes="(max-width: 768px) 100vw, 45vw">
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endfor %}
+
+{% include "partials/scrolling-text.njk" %}
+{% include "partials/footer-brand.njk" %}

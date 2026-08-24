@@ -1,0 +1,155 @@
+backend:
+  name: github
+  repo: michevanessen/resonance
+  branch: main
+  # Sveltia's OAuth worker, deployed on Cloudflare Workers. See DEPLOY.md.
+  base_url: https://auth.jointheresonance.com
+
+# Local development: run `npx @sveltia/cms-proxy-server` alongside `npm start`
+local_backend: true
+
+publish_mode: simple
+site_url: https://jointheresonance.com
+display_url: https://jointheresonance.com
+logo_url: /assets/img/logo.webp
+
+media_folder: src/assets/img
+public_folder: /assets/img
+
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home page
+        file: src/content/pages/home.md
+        fields:
+          - { name: title, label: "Browser / SEO title", widget: string }
+          - { name: description, label: "SEO description", widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: title, label: Headline, widget: string }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: ctaLabel, label: "Button text", widget: string }
+              - { name: ctaUrl, label: "Button link", widget: string, default: "/contact/" }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: "Image alt text", widget: string }
+          - { name: sectionTitle, label: "Big section title", widget: string }
+          - name: about
+            label: "About block"
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: "Image alt text", widget: string }
+              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } }
+          - { name: statement, label: "Statement banner", widget: text }
+          - { name: statementImage, label: "Statement image", widget: image }
+          - { name: statementImageAlt, label: "Statement image alt text", widget: string }
+          - { name: marqueeText, label: "Scrolling text", widget: string }
+          - { name: ogImage, label: "Social share image", widget: image, required: false }
+          - { name: layout, label: Layout, widget: hidden, default: layouts/home.njk }
+          - { name: permalink, label: Permalink, widget: hidden, default: / }
+          - { name: body, label: "(unused)", widget: hidden, default: "" }
+
+      - name: about
+        label: About page
+        file: src/content/pages/about.md
+        fields:
+          - { name: title, label: "Browser / SEO title", widget: string }
+          - { name: description, label: "SEO description", widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: title, label: Headline, widget: string }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: "Image alt text", widget: string }
+          - { name: sectionTitle, label: "Big section title", widget: string }
+          - { name: teamTitle, label: "Team heading", widget: string }
+          - { name: closingStatement, label: "Closing statement", widget: string }
+          - { name: ogImage, label: "Social share image", widget: image, required: false }
+          - { name: layout, label: Layout, widget: hidden, default: layouts/about.njk }
+          - { name: permalink, label: Permalink, widget: hidden, default: /about/ }
+          - { name: body, label: "(unused)", widget: hidden, default: "" }
+
+      - name: services
+        label: Services page
+        file: src/content/pages/services.md
+        fields:
+          - { name: title, label: "Browser / SEO title", widget: string }
+          - { name: description, label: "SEO description", widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: title, label: Headline, widget: string }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: "Image alt text", widget: string }
+          - { name: sectionTitle, label: "Big section title", widget: string }
+          - { name: marqueeText, label: "Scrolling text", widget: string }
+          - { name: ogImage, label: "Social share image", widget: image, required: false }
+          - { name: layout, label: Layout, widget: hidden, default: layouts/services.njk }
+          - { name: permalink, label: Permalink, widget: hidden, default: /services/ }
+          - { name: body, label: "(unused)", widget: hidden, default: "" }
+
+      - name: contact
+        label: Contact page
+        file: src/content/pages/contact.md
+        fields:
+          - { name: title, label: "Browser / SEO title", widget: string }
+          - { name: description, label: "SEO description", widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: title, label: Headline, widget: string }
+              - { name: body, label: Paragraph, widget: text }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: "Image alt text", widget: string }
+          - { name: sectionTitle, label: "Big section title", widget: string }
+          - { name: tidycalPath, label: "TidyCal booking path", widget: string, hint: "e.g. miche/resonance-consultation" }
+          - { name: fallbackHeading, label: "Email fallback heading", widget: string }
+          - { name: marqueeText, label: "Scrolling text", widget: string }
+          - { name: ogImage, label: "Social share image", widget: image, required: false }
+          - { name: layout, label: Layout, widget: hidden, default: layouts/contact.njk }
+          - { name: permalink, label: Permalink, widget: hidden, default: /contact/ }
+          - { name: body, label: "(unused)", widget: hidden, default: "" }
+
+  - name: team
+    label: Team members
+    folder: src/content/team
+    create: true
+    delete: true
+    slug: "{{fields.name | lower}}"
+    sortable_fields: [order, name]
+    summary: "{{order}}. {{name}} — {{position}}"
+    fields:
+      - { name: name, label: Name, widget: string, hint: "Displayed in caps on the site" }
+      - { name: position, label: Position, widget: string }
+      - { name: image, label: Photo, widget: image }
+      - { name: order, label: "Display order", widget: number, value_type: int, min: 1, default: 1 }
+      - { name: body, label: Bio, widget: markdown }
+
+  - name: services
+    label: Services
+    folder: src/content/services
+    create: true
+    delete: true
+    slug: "{{order}}-{{slug}}"
+    sortable_fields: [order, title]
+    summary: "{{order}}. {{title}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: image, label: Image, widget: image }
+      - { name: imageAlt, label: "Image alt text", widget: string }
+      - { name: order, label: "Display order", widget: number, value_type: int, min: 1, default: 1 }
+      - { name: intro, label: "Intro paragraph", widget: text }
+      - { name: bullets, label: "Bullet list", widget: list, field: { name: item, label: Item, widget: string } }
+      - { name: closing, label: "Closing paragraph", widget: text }
+      - { name: ctaLabel, label: "Button text", widget: string, default: SCHEDULE CONSULTATION }
+      - { name: body, label: "(unused)", widget: hidden, default: "" }

@@ -1,0 +1,14 @@
+<footer class="site-footer">
+    <section class="footer-brand">
+        <h2 class="footer-brand__title">{{ site.name | upper }}</h2>
+    </section>
+    <div class="site-footer__meta">
+        <p class="site-footer__contact">
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </p>
+        <ul class="site-footer__nav">
+            {% for item in site.nav %}<li><a href="{{ item.url }}">{{ item.label }}</a></li>{% endfor %}
+        </ul>
+        <p class="site-footer__legal">&copy; {{ buildYear }} {{ site.name }}. All rights reserved.</p>
+    </div>
+</footer>

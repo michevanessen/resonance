@@ -1,0 +1,16 @@
+{
+  "name": "resonance",
+  "version": "1.0.0",
+  "description": "The Resonance — consulting firm site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve --quiet",
+    "build": "eleventy",
+    "optimize:src": "node scripts/optimize-source-images.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-img": "^7.0.0"
+  }
+}

@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+---
+<section id="home" class="hero">
+    <div class="hero__content">
+        <div class="hero__text">
+            <h1 class="hero__title">{{ hero.title }}</h1>
+            <p class="hero__description">{{ hero.body }}</p>
+            <a href="{{ hero.ctaUrl }}" class="hero__cta">{{ hero.ctaLabel }}</a>
+        </div>
+        <div class="hero__image">
+            <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}"
+                 loading="eager" decoding="async" fetchpriority="high"
+                 sizes="(max-width: 768px) 100vw, 45vw">
+        </div>
+    </div>
+    <h2 class="section__title">{{ sectionTitle }}</h2>
+</section>
+
+<section class="about">
+    <div class="about__content">
+        <div class="about__text">
+            <div class="about__info">
+                <h2 class="hero__title__brown">{{ about.title }}</h2>
+                {% for paragraph in about.paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+            </div>
+        </div>
+        <div class="about__image">
+            <img src="{{ about.image }}" alt="{{ about.imageAlt }}"
+                 sizes="(max-width: 768px) 100vw, 45vw">
+        </div>
+    </div>
+    <h2 class="section__title__dark">{{ statement }}</h2>
+    <img src="{{ statementImage }}" alt="{{ statementImageAlt }}"
+         class="about__footer-image" sizes="100vw">
+</section>
+
+{% include "partials/scrolling-text.njk" %}
+{% include "partials/footer-brand.njk" %}

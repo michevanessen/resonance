@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+---
+<section class="contact-hero">
+    <div class="contact-hero__content">
+        <div class="contact-hero__text">
+            <h1 class="contact-hero__title">{{ hero.title }}</h1>
+            <div class="contact-hero__description">
+                <p>{{ hero.body }}</p>
+            </div>
+        </div>
+        <div class="contact-hero__image">
+            <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}"
+                 loading="eager" decoding="async" fetchpriority="high"
+                 sizes="(max-width: 768px) 100vw, 45vw">
+        </div>
+    </div>
+    <h2 class="section__title">{{ sectionTitle }}</h2>
+</section>
+
+<section class="contact-embed" aria-label="Book a consultation">
+    <div class="contact-embed__container">
+        <div class="tidycal-embed" data-path="{{ tidycalPath }}"></div>
+        <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+        <noscript>
+            <p class="contact-embed__noscript">
+                Booking requires JavaScript. Email us at
+                <a href="mailto:{{ site.email }}">{{ site.email }}</a> and we'll find a time.
+            </p>
+        </noscript>
+    </div>
+    <div class="contact-embed__fallback">
+        <h2>{{ fallbackHeading }}</h2>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
+</section>
+
+{% include "partials/scrolling-text.njk" %}
+{% include "partials/footer-brand.njk" %}
