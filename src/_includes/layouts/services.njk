@@ -30,6 +30,7 @@ layout: layouts/base.njk
         {% endif %}
         <div class="service-section__text">
             <h3 class="service-section__subtitle" id="service-{{ loop.index }}">{{ svc.title }}</h3>
+            {% if svc.trigger %}<p class="service-section__trigger">{{ svc.trigger }}</p>{% endif %}
             <p class="service-section__description">{{ svc.intro }}</p>
             <ul class="service-section__list">
                 {% for bullet in svc.bullets %}<li>{{ bullet }}</li>{% endfor %}
@@ -45,6 +46,17 @@ layout: layouts/base.njk
     </div>
 </section>
 {% endfor %}
+
+<section class="exclusions" aria-labelledby="exclusions-heading">
+    <div class="exclusions__inner">
+        <h2 class="exclusions__title" id="exclusions-heading">{{ exclusions.title }}</h2>
+        <p class="exclusions__intro">{{ exclusions.intro }}</p>
+        <ul class="exclusions__list">
+            {% for item in exclusions.items %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+        <p class="exclusions__closing">{{ exclusions.closing }}</p>
+    </div>
+</section>
 
 {% include "partials/scrolling-text.njk" %}
 {% include "partials/footer-brand.njk" %}
