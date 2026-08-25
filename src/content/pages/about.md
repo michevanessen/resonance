@@ -1,9 +1,9 @@
 ---
 layout: layouts/about.njk
 permalink: /about/
-title: About — The Resonance
+title: About | The Resonance
 description: >-
-  The Resonance is Lana and Kim van Essen — two consultants who do the
+  The Resonance is Lana and Kim van Essen, two consultants who do the
   operational work most firms hand off. Diagnostic first, then execution.
 ogImage: /assets/img/about-top.webp
 
@@ -35,9 +35,9 @@ approach:
       What comes out is a short, ordered list of what to fix and in what order.
     - >-
       The training behind that is in organizational leadership and the
-      organizational life cycle — which failures are predictable at which stage
-      of an organization's life. We use it as a diagnostic instrument. We do not
-      sell it as coaching.
+      organizational life cycle, which tells you which failures are predictable
+      at which stage of an organization's life. We use it as a diagnostic
+      instrument. We do not sell it as coaching.
 
 teamTitle: WHO WE ARE
 

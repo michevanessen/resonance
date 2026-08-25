@@ -1,18 +1,18 @@
 ---
 layout: layouts/home.njk
 permalink: /
-title: The Resonance — Operations Consulting for Nonprofits and Churches
+title: The Resonance | Operations Consulting for Nonprofits and Churches
 description: >-
   We help pastors and executive directors get back to leading. The Resonance
-  takes over the operational work — finance, HR, compliance, transitions — that
-  pulls you away from it.
+  takes over the operational work that pulls you away from it: finance, HR,
+  compliance, and transitions.
 ogImage: /assets/img/hero.webp
 
 hero:
   title: WE HELP PASTORS AND EXECUTIVE DIRECTORS GET BACK TO LEADING
   body: >-
-    The Resonance takes over the operational work that pulls you away from it —
-    finance, HR, compliance, systems, transitions. We assess for ninety days,
+    The Resonance takes over the operational work that pulls you away from it.
+    Finance, HR, compliance, systems, transitions. We assess for ninety days,
     agree on the priorities, and execute them. You lead.
   ctaLabel: START WITH AN ASSESSMENT
   ctaUrl: /contact/
@@ -29,10 +29,10 @@ signals:
     - You have spent more time this month on personnel files than on the work you were called to.
     - Your handbook describes an organization you stopped being years ago.
     - Someone essential is leaving, and everything they know is leaving with them.
-    - You found out your nonprofit status had lapsed — from someone else.
+    - You found out from someone else that your nonprofit status had lapsed.
     - The building keeps breaking, and it keeps becoming your problem.
   closing: >-
-    None of that is a leadership failure. It is an infrastructure failure — and
+    None of that is a leadership failure. It is an infrastructure failure, and
     infrastructure can be rebuilt.
 
 about:
@@ -49,8 +49,8 @@ about:
       We diagnose the gap between what an organization says it is and how it
       actually operates, then rebuild the infrastructure underneath until the
       two match. Sometimes that means advising. More often it means we take the
-      seat — interim Operations Director, Director of Administration, interim
-      CEO — and do the work ourselves.
+      seat ourselves as interim Operations Director, Director of
+      Administration, or interim CEO, and do the work.
     - >-
       We treat money, buildings, compliance, and staffing as one system, because
       that is how they actually break. Most consultants pick a lane. We don't.
@@ -68,7 +68,7 @@ process:
       question: What has to be fixed first?
       body: >-
         A short, ordered plan that you approve. Sequenced by risk and
-        dependency — what is most likely to hurt you, and what has to happen
+        dependency. What is most likely to hurt you, and what has to happen
         before anything else can.
     - label: EXECUTE
       question: Who is doing the work?

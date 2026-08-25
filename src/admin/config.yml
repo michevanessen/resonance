@@ -60,7 +60,7 @@ collections:
               - name: steps
                 label: Steps
                 widget: list
-                summary: "{{fields.label}} — {{fields.question}}"
+                summary: "{{fields.label}}: {{fields.question}}"
                 fields:
                   - { name: label, label: "Step name", widget: string }
                   - { name: question, label: "Step question", widget: string }
@@ -167,7 +167,7 @@ collections:
     delete: true
     slug: "{{fields.name | lower | replace(' ', '-')}}"
     sortable_fields: [order, name]
-    summary: "{{order}}. {{name}} — {{position}}"
+    summary: "{{order}}. {{name}}: {{position}}"
     fields:
       - { name: name, label: Name, widget: string, hint: "Displayed in caps on the site" }
       - { name: position, label: Position, widget: string }

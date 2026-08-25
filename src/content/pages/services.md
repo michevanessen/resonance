@@ -1,7 +1,7 @@
 ---
 layout: layouts/services.njk
 permalink: /services/
-title: Services — The Resonance
+title: Services | The Resonance
 description: >-
   Interim operations leadership, finance and bookkeeping, HR and compliance,
   transition and succession, assessments and risk management. Operational work
@@ -13,8 +13,8 @@ hero:
   body: >-
     Five things, all of them operational. If what you need is a leadership
     coach, a strategic planning retreat, or a marketing team, we will point you
-    toward someone good — it isn't us. We come in, assess, agree on priorities,
-    and do the work.
+    toward someone good. It isn't us. We come in, assess, agree on the
+    priorities, and do the work.
   image: /assets/img/services-1.webp
   imageAlt: The operational work of running an organization
 
@@ -32,8 +32,8 @@ exclusions:
     - Board development training
     - Marketing and communications
   closing: >-
-    When you need one of these, ask anyway — we know who does each of them well
-    and we would rather refer you than take work that isn't ours.
+    When you need one of these, ask anyway. We know who does each of them
+    well, and we would rather refer you than take work that isn't ours.
 
 marqueeText: MISSION AND MECHANICS SHOULD MATCH
 ---

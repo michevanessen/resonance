@@ -1,22 +1,23 @@
 ---
 layout: layouts/contact.njk
 permalink: /contact/
-title: Contact — The Resonance
+title: Contact | The Resonance
 description: >-
-  Schedule a free consultation with The Resonance and explore how we can help
-  your organization grow healthy.
+  Book a free consultation with The Resonance. Tell us what is breaking and we
+  will tell you whether an assessment is the right next step.
 ogImage: /assets/img/contact.webp
 
 hero:
-  title: SCHEDULE YOUR FREE CONSULTATION
+  title: START WITH AN ASSESSMENT
   body: >-
-    Ready to ignite transformational change in your organization? Let's explore
-    how The Resonance can help you build bridges without giving up space.
+    Book a free consultation. Tell us what is breaking, and we will tell you
+    honestly whether a ninety-day assessment is the right next step or whether
+    you need someone else. Either answer is useful.
   image: /assets/img/contact.webp
   imageAlt: Contact The Resonance
 
 sectionTitle: CONNECT
 tidycalPath: miche/resonance-consultation
 fallbackHeading: Prefer email?
-marqueeText: GROWTH SHOULD BE HEALTHY
+marqueeText: MISSION AND MECHANICS SHOULD MATCH
 ---

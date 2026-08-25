@@ -185,6 +185,12 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     display: inline-block;
+    text-align: center;
+    /* A wrapped label inside a 50px pill leaves dead space at the corners;
+       balancing the lines and tightening leading keeps the shape honest. */
+    text-wrap: balance;
+    line-height: 1.25;
+    max-width: 100%;
 }
 
 .hero__cta:hover {
@@ -1341,5 +1347,52 @@ img {
     .process__steps {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+}
+
+/* ==========================================================================
+   Responsive refinements
+   ========================================================================== */
+
+/* The signals list reads as one column on phones and two on wider screens. */
+@media (min-width: 48em) {
+    .signals__list {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3.5rem;
+        max-width: none;
+    }
+}
+
+/* Two people, one statement: give the ownership block real presence. */
+.ownership {
+    text-align: center;
+}
+
+.ownership__title {
+    color: var(--wine);
+    margin-bottom: 1.5rem;
+}
+
+.ownership__inner p {
+    margin: 0 auto;
+    max-width: 42ch;
+    font-family: 'Nimbus Sans Black Extended', 'Arial Black', sans-serif;
+    font-size: clamp(1.125rem, 2.2vw, 1.75rem);
+    line-height: 1.35;
+    color: var(--wine);
+}
+
+@media (max-width: 48em) {
+    /* Full-width tap target rather than a pill with wrapped text inside it. */
+    .hero__cta {
+        display: block;
+        width: 100%;
+        max-width: 22rem;
+        padding: 1rem 1.25rem;
+        border-radius: 1.75rem;
+    }
+
+    .ownership {
+        padding: 4rem 0;
     }
 }

@@ -5,15 +5,15 @@ image: /assets/img/services-7.webp
 imageAlt: Assessment and risk review session
 order: 5
 intro: >-
-  Kim van Essen leads this work — the people-and-risk side of an operational
-  picture, used both on its own and as part of a wider assessment.
+  Kim leads this work. It covers the people and risk side of the operational
+  picture, useful on its own and as part of a wider assessment.
 bullets:
   - Individual and team assessments
   - Vocational coaching and career transition support
   - Risk assessment and mitigation planning
   - Safeguarding and vulnerable-population policy
 closing: >-
-  Useful on its own, and useful early — knowing where your risk and your people
-  actually sit changes which operational problem you fix first.
+  Worth doing early. Knowing where your risk and your people actually sit
+  changes which operational problem you fix first.
 ctaLabel: TALK ABOUT AN ASSESSMENT
 ---

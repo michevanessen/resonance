@@ -5,8 +5,8 @@ image: /assets/img/services-3.webp
 imageAlt: Reconciling an organization's books
 order: 2
 intro: >-
-  The financial back office, run properly — from catching up neglected books to
-  building a budget your board can read.
+  The financial back office, run properly. Everything from catching up
+  neglected books to building a budget your board can read.
 bullets:
   - Monthly close and bank reconciliation
   - Catch-up bookkeeping on back-year books
