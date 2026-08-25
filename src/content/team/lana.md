@@ -1,5 +1,5 @@
 ---
-name: LANA VAN ESSEN
+name: LANA
 position: OPERATIONS, FINANCE, LEADERSHIP
 image: /assets/img/lana.webp
 order: 1
