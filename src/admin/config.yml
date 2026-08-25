@@ -45,6 +45,26 @@ collections:
               - { name: image, label: Image, widget: image }
               - { name: imageAlt, label: "Image alt text", widget: string }
               - { name: paragraphs, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } }
+          - name: signals
+            label: "Sound familiar? (pain points)"
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: items, label: "Signals", widget: list, field: { name: item, label: Signal, widget: text } }
+              - { name: closing, label: "Closing line", widget: text }
+          - name: process
+            label: "How it works"
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - name: steps
+                label: Steps
+                widget: list
+                summary: "{{fields.label}}: {{fields.question}}"
+                fields:
+                  - { name: label, label: "Step name", widget: string }
+                  - { name: question, label: "Step question", widget: string }
+                  - { name: body, label: "Step description", widget: text }
           - { name: statement, label: "Statement banner", widget: text }
           - { name: statementImage, label: "Statement image", widget: image }
           - { name: statementImageAlt, label: "Statement image alt text", widget: string }
@@ -69,7 +89,19 @@ collections:
               - { name: image, label: Image, widget: image }
               - { name: imageAlt, label: "Image alt text", widget: string }
           - { name: sectionTitle, label: "Big section title", widget: string }
+          - name: approach
+            label: "Why diagnostic first"
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } }
           - { name: teamTitle, label: "Team heading", widget: string }
+          - name: ownership
+            label: "Who we are accountable to"
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: body, label: Text, widget: text }
           - { name: closingStatement, label: "Closing statement", widget: string }
           - { name: ogImage, label: "Social share image", widget: image, required: false }
           - { name: layout, label: Layout, widget: hidden, default: layouts/about.njk }
@@ -91,6 +123,14 @@ collections:
               - { name: image, label: Image, widget: image }
               - { name: imageAlt, label: "Image alt text", widget: string }
           - { name: sectionTitle, label: "Big section title", widget: string }
+          - name: exclusions
+            label: "What we don't do"
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: intro, label: "Intro paragraph", widget: text }
+              - { name: items, label: "Things we don't do", widget: list, field: { name: item, label: Item, widget: string } }
+              - { name: closing, label: "Closing paragraph", widget: text }
           - { name: marqueeText, label: "Scrolling text", widget: string }
           - { name: ogImage, label: "Social share image", widget: image, required: false }
           - { name: layout, label: Layout, widget: hidden, default: layouts/services.njk }
@@ -125,9 +165,9 @@ collections:
     folder: src/content/team
     create: true
     delete: true
-    slug: "{{fields.name | lower}}"
+    slug: "{{fields.name | lower | replace(' ', '-')}}"
     sortable_fields: [order, name]
-    summary: "{{order}}. {{name}} — {{position}}"
+    summary: "{{order}}. {{name}}: {{position}}"
     fields:
       - { name: name, label: Name, widget: string, hint: "Displayed in caps on the site" }
       - { name: position, label: Position, widget: string }
@@ -145,6 +185,7 @@ collections:
     summary: "{{order}}. {{title}}"
     fields:
       - { name: title, label: Title, widget: string }
+      - { name: trigger, label: "Trigger line", widget: string, hint: "The moment someone picks up the phone, e.g. 'The books are behind. The audit is not.'" }
       - { name: image, label: Image, widget: image }
       - { name: imageAlt, label: "Image alt text", widget: string }
       - { name: order, label: "Display order", widget: number, value_type: int, min: 1, default: 1 }

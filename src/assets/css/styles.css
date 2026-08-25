@@ -185,6 +185,12 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     display: inline-block;
+    text-align: center;
+    /* A wrapped label inside a 50px pill leaves dead space at the corners;
+       balancing the lines and tightening leading keeps the shape honest. */
+    text-wrap: balance;
+    line-height: 1.25;
+    max-width: 100%;
 }
 
 .hero__cta:hover {
@@ -1123,5 +1129,270 @@ img {
     .site-footer__meta {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ==========================================================================
+   Repositioning sections: signals, process, approach, ownership, exclusions
+   ========================================================================== */
+
+.signals {
+    background-color: var(--wine);
+    padding: 6rem 0;
+}
+
+.signals__inner,
+.process__inner,
+.approach__inner,
+.ownership__inner,
+.exclusions__inner {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.signals__title {
+    font-family: 'Nimbus Sans Black Extended', 'Arial Black', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    color: var(--pink);
+    line-height: 1;
+    margin-bottom: 2.5rem;
+}
+
+.signals__list {
+    list-style: none;
+    display: grid;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    max-width: 60ch;
+}
+
+.signals__list li {
+    color: var(--cream);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    padding: 1rem 0 1rem 2rem;
+    border-bottom: 1px solid rgba(244, 242, 234, 0.2);
+    position: relative;
+}
+
+.signals__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.6rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--orange);
+    border-radius: 50%;
+}
+
+.signals__closing {
+    color: var(--pink);
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 600;
+    max-width: 50ch;
+}
+
+.process {
+    background-color: var(--cream);
+    padding: 6rem 0;
+}
+
+.process__title,
+.approach__title,
+.exclusions__title,
+.ownership__title {
+    font-family: 'Nimbus Sans Black Extended', 'Arial Black', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    color: var(--wine);
+    line-height: 1;
+    margin-bottom: 3rem;
+}
+
+.process__steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.process__step {
+    border-top: 3px solid var(--orange);
+    padding-top: 1.25rem;
+}
+
+.process__step-number {
+    display: block;
+    font-family: 'Nimbus Sans Black Extended', 'Arial Black', sans-serif;
+    font-size: 1rem;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+}
+
+.process__step-label {
+    font-family: 'Nimbus Sans Black Extended', 'Arial Black', sans-serif;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    color: var(--wine);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.process__step-question {
+    font-style: italic;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
+}
+
+.process__step-body {
+    color: var(--dark);
+}
+
+.process__cta,
+.exclusions__cta {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--wine);
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.process__cta:hover,
+.process__cta:focus-visible {
+    background-color: var(--orange);
+}
+
+.service-section__trigger {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+    opacity: 0.9;
+}
+
+.approach {
+    background-color: var(--cream);
+    padding: 6rem 0;
+}
+
+.approach__inner p {
+    max-width: 65ch;
+    margin-bottom: 1.25rem;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+.ownership {
+    background-color: var(--salmon);
+    padding: 5rem 0;
+}
+
+.ownership__inner p {
+    max-width: 65ch;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--dark);
+}
+
+.exclusions {
+    background-color: var(--wine);
+    padding: 6rem 0;
+}
+
+.exclusions__title {
+    color: var(--pink);
+}
+
+.exclusions__intro,
+.exclusions__closing {
+    color: var(--cream);
+    max-width: 60ch;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+.exclusions__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 2rem 0;
+}
+
+.exclusions__list li {
+    border: 1px solid rgba(244, 242, 234, 0.4);
+    color: var(--cream);
+    padding: 0.6rem 1.1rem;
+    font-weight: 600;
+    text-decoration: line-through;
+    text-decoration-color: var(--orange);
+    text-decoration-thickness: 2px;
+}
+
+/* Two people rather than six: keep the cards from stretching across the grid. */
+.team-grid--pair {
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 28rem));
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .signals,
+    .process,
+    .approach,
+    .exclusions {
+        padding: 4rem 0;
+    }
+
+    .process__steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ==========================================================================
+   Responsive refinements
+   ========================================================================== */
+
+/* The signals list reads as one column on phones and two on wider screens. */
+@media (min-width: 48em) {
+    .signals__list {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3.5rem;
+        max-width: none;
+    }
+}
+
+/* Two people, one statement: give the ownership block real presence. */
+.ownership {
+    text-align: center;
+}
+
+.ownership__title {
+    color: var(--wine);
+    margin-bottom: 1.5rem;
+}
+
+.ownership__inner p {
+    margin: 0 auto;
+    max-width: 42ch;
+    font-family: 'Nimbus Sans Black Extended', 'Arial Black', sans-serif;
+    font-size: clamp(1.125rem, 2.2vw, 1.75rem);
+    line-height: 1.35;
+    color: var(--wine);
+}
+
+@media (max-width: 48em) {
+    /* Full-width tap target rather than a pill with wrapped text inside it. */
+    .hero__cta {
+        display: block;
+        width: 100%;
+        max-width: 22rem;
+        padding: 1rem 1.25rem;
+        border-radius: 1.75rem;
+    }
+
+    .ownership {
+        padding: 4rem 0;
     }
 }

@@ -4,16 +4,28 @@
   "url": "https://jointheresonance.com",
   "locale": "en_US",
   "lang": "en",
-  "tagline": "Grow your business through resonant leadership",
-  "description": "The Resonance is a women- and gender expansive-owned consulting firm specializing in fundraising strategy, operational effectiveness, leadership development, and instructional design for mission-driven organizations.",
+  "tagline": "We help pastors and executive directors get back to leading",
+  "description": "The Resonance is a women- and gender expansive-owned operations consulting firm for nonprofits and churches. We assess for ninety days, agree on the priorities, and execute them: finance, HR, compliance, transitions, and interim operations leadership.",
   "email": "miche@jointheresonance.com",
   "ogImage": "/assets/img/hero.webp",
   "themeColor": "#200603",
   "nav": [
-    { "label": "HOME", "url": "/" },
-    { "label": "ABOUT", "url": "/about/" },
-    { "label": "SERVICES", "url": "/services/" },
-    { "label": "CONTACT", "url": "/contact/" }
+    {
+      "label": "HOME",
+      "url": "/"
+    },
+    {
+      "label": "ABOUT",
+      "url": "/about/"
+    },
+    {
+      "label": "SERVICES",
+      "url": "/services/"
+    },
+    {
+      "label": "CONTACT",
+      "url": "/contact/"
+    }
   ],
   "social": {
     "linkedin": "",

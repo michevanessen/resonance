@@ -18,20 +18,34 @@ layout: layouts/base.njk
     <h2 class="section__title">{{ sectionTitle }}</h2>
 </section>
 
+<section class="approach" aria-labelledby="approach-heading">
+    <div class="approach__inner">
+        <h2 class="approach__title" id="approach-heading">{{ approach.title }}</h2>
+        {% for paragraph in approach.paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+    </div>
+</section>
+
 <section class="team-section" aria-labelledby="team-heading">
     <h2 class="team-section__subtitle" id="team-heading">{{ teamTitle }}</h2>
 
-    <ul class="team-grid">
+    <ul class="team-grid team-grid--pair">
         {% for member in collections.team %}
         <li class="team-member">
             <img src="{{ member.data.image }}" alt="{{ member.data.name | title }}"
-                 class="team-member__image" sizes="(max-width: 768px) 100vw, 30vw">
+                 class="team-member__image" sizes="(max-width: 768px) 100vw, 45vw">
             <h3 class="team-member__name">{{ member.data.name }}</h3>
             <p class="team-member__position">{{ member.data.position }}</p>
             <div class="team-member__bio">{{ member.content | safe }}</div>
         </li>
         {% endfor %}
     </ul>
+</section>
+
+<section class="ownership" aria-labelledby="ownership-heading">
+    <div class="ownership__inner">
+        <h2 class="ownership__title" id="ownership-heading">{{ ownership.title }}</h2>
+        <p>{{ ownership.body }}</p>
+    </div>
 </section>
 
 <section class="about-footer-text">

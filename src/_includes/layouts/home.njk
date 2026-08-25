@@ -17,6 +17,16 @@ layout: layouts/base.njk
     <h2 class="section__title">{{ sectionTitle }}</h2>
 </section>
 
+<section class="signals" aria-labelledby="signals-heading">
+    <div class="signals__inner">
+        <h2 class="signals__title" id="signals-heading">{{ signals.title }}</h2>
+        <ul class="signals__list">
+            {% for item in signals.items %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+        <p class="signals__closing">{{ signals.closing }}</p>
+    </div>
+</section>
+
 <section class="about">
     <div class="about__content">
         <div class="about__text">
@@ -33,6 +43,23 @@ layout: layouts/base.njk
     <h2 class="section__title__dark">{{ statement }}</h2>
     <img src="{{ statementImage }}" alt="{{ statementImageAlt }}"
          class="about__footer-image" sizes="100vw">
+</section>
+
+<section class="process" aria-labelledby="process-heading">
+    <div class="process__inner">
+        <h2 class="process__title" id="process-heading">{{ process.title }}</h2>
+        <ol class="process__steps">
+            {% for step in process.steps %}
+            <li class="process__step">
+                <span class="process__step-number">{{ "0" }}{{ loop.index }}</span>
+                <h3 class="process__step-label">{{ step.label }}</h3>
+                <p class="process__step-question">{{ step.question }}</p>
+                <p class="process__step-body">{{ step.body }}</p>
+            </li>
+            {% endfor %}
+        </ol>
+        <a href="/services/" class="process__cta">SEE WHAT WE DO</a>
+    </div>
 </section>
 
 {% include "partials/scrolling-text.njk" %}
