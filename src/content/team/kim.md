@@ -1,5 +1,5 @@
 ---
-name: KIM VAN ESSEN
+name: KIM
 position: VOCATIONAL COACHING, ASSESSMENTS, AND RISK MANAGEMENT
 image: /assets/img/kim.webp
 order: 2
