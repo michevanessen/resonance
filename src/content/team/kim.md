@@ -1,7 +1,7 @@
 ---
 name: KIM
 position: ASSESSMENTS · VOCATIONAL COACHING · RISK MANAGEMENT
-image: /assets/img/kim.webp
+image: /assets/img/IMG_7769 Large.jpeg
 order: 2
 ---
 
