@@ -3,7 +3,7 @@ title: The Resonance | Operations Consulting for Nonprofits and Churches
 description: We help pastors and executive directors get back to leading. The Resonance takes over the finance, HR, compliance, and transitions that pulls you away from leading your organization.
 hero:
   title: WE HELP PASTORS AND EXECUTIVE DIRECTORS GET BACK TO LEADING
-  body: The Resonance takes over the operational work that pulls you away from it. Finance, HR, compliance, systems, transitions. We assess for ninety days, agree on the priorities, and execute them. .
+  body: The Resonance takes over the operational work that pulls you away from it. Finance, HR, compliance, systems, transitions. We assess for ninety days, agree on the priorities, and execute them.
   ctaLabel: START WITH AN ASSESSMENT
   ctaUrl: /contact/
   image: /assets/img/hero.webp
