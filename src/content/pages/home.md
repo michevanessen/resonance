@@ -39,7 +39,7 @@ process:
       body: A short, ordered plan that you approve. Sequenced by risk and dependency. What is most likely to hurt you, and what has to happen before anything else can.
     - label: EXECUTE
       question: Who is doing the work?
-      body: We are. This is not a report you are left to implement alone. We run the cleanup, the filings, the rebuild, the hiring, and the transition.
+      body: We are. We don't leave you with a report you are left to implement alone. We run the cleanup, the filings, the rebuild, the hiring, and the transition.
     - label: HAND OFF
       question: What happens when we leave?
       body: Documented processes, trained staff, and a clear exit. The goal of every engagement is to make ourselves unnecessary.
