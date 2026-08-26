@@ -32,8 +32,10 @@
 /assets/img/*
   Cache-Control: public, max-age=604800
 
+# CSS and JS are requested with a ?v=<content hash> that changes whenever the
+# file changes, so the response itself can be cached hard and indefinitely.
 /assets/css/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=31536000, immutable
 
 /assets/js/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=31536000, immutable
