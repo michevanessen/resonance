@@ -1,7 +1,7 @@
 ---
 name: LANA
 position: OPERATIONS · FINANCE · HR · COMPLIANCE
-image: /assets/img/lana.webp
+image: /assets/img/IMG_2578 Large.jpeg
 order: 1
 ---
 
